@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('gruppens', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->boolean('comment');
+            $table->boolean('chargieren');
+
+
             $table->timestamps();
         });
     }

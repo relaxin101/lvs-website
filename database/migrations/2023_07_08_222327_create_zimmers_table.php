@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('zimmers', function (Blueprint $table) {
             $table->id();
+            $table->integer('betten');
+            $table->string('kommentar');
+            $table->string('ort');
+            $table->boolean('verfuegbar');
             $table->timestamps();
         });
     }

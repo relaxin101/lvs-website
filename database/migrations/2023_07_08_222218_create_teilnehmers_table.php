@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('teilnehmers', function (Blueprint $table) {
             $table->id();
+
+            $table->date('reception');
+            $table->date('burschung');
+            $table->string('essen')->nullable();
+            $table->string('notfallkontakt');
+            $table->string('sonstiges');
+
             $table->timestamps();
+            $table->foreign('id')->references('id')->on('couleurstudents');
         });
     }
 

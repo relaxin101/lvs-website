@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('verbindungs', function (Blueprint $table) {
             $table->id();
+            $table->string('kuerzel');
+            $table->string('verbindung');
+            $table->string('straße');
+            $table->integer('plz');
+            $table->string('ort');
             $table->timestamps();
         });
     }

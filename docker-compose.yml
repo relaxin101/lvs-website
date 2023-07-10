@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+    postgres:
+        #container_name: postgres
+        environment:
+            - POSTGRES_PASSWORD=wunderlich
+            - POSTGRES_USER=kraeuter
+            - POSTGRES_DB=postgres
+        ports:
+            - '5432:5432'
+        image: 'postgres:latest'

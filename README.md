@@ -37,3 +37,7 @@ Weitere wichtige Befehle wären:
 - Über *Models* wird mit der Datenbank interagiert `app/Models`
 - *Controller* und *Services* beinhalten die eigentliche Logik
 - *Views* stellen die UI bereit
+
+
+
+Ergo HES! was here :)

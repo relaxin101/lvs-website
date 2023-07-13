@@ -11,7 +11,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('mitarbeiters', function (Blueprint $table) {
+        Schema::create('mitarbeiter', function (Blueprint $table) {
             $table->id();
             $table->enum('status_RBE',
                 [
@@ -39,6 +39,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('mitarbeiters');
+        Schema::dropIfExists('mitarbeiter');
     }
 };

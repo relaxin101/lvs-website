@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('teilnehmers', function (Blueprint $table) {
+        Schema::create('teilnehmer', function (Blueprint $table) {
             $table->id();
 
             $table->date('reception');
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('sonstiges');
 
             $table->timestamps();
-            $table->foreign('id')->references('id')->on('couleurstudents');
+            $table->foreign('id')->references('id')->on('couleurstudenten');
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('teilnehmers');
+        Schema::dropIfExists('teilnehmer');
     }
 };

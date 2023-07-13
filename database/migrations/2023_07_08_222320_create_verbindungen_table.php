@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('verbindungs', function (Blueprint $table) {
+        Schema::create('verbindungen', function (Blueprint $table) {
             $table->id();
             $table->string('kuerzel');
             $table->string('verbindung');
@@ -20,6 +20,12 @@ return new class extends Migration
             $table->string('ort');
             $table->timestamps();
         });
+
+        Schema::create('couleurstudent_verbindung', function (Blueprint $table) {
+            $table->foreignId('couleurstudent_id')->references('id')->on('couleurstudenten');
+            $table->foreignId('verbindung_id')->references('id')->on('verbindungen');
+
+        });
     }
 
     /**
@@ -27,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('verbindungs');
+        Schema::dropIfExists('verbindungen');
     }
 };

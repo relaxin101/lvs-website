@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schulungs', function (Blueprint $table) {
+        Schema::create('zimmer', function (Blueprint $table) {
             $table->id();
-            $table->integer('jahr');
-            $table->foreignId('schulungsleiter')->nullable();
-            $table->string('landessenior')->nullable();
-            $table->string('landesphilistersenior')->nullable();
-            $table->string('landesvorsitzende');
+            $table->integer('betten');
+            $table->string('kommentar');
+            $table->string('ort');
+            $table->boolean('verfuegbar');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('schulungs');
+        Schema::dropIfExists('zimmer');
     }
 };

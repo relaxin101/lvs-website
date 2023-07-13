@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnmeldungController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -15,10 +16,11 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Route::get('/anmeldung', function () {
     return Inertia::render('TeilnehmerAnmeldung/Anmeldung');
-})->name('anmeldung');
+})->name('anmeldung_website');
 
 
-
-
+Route::get('/anmeldung', [AnmeldungController::class, 'store'])->name('anmeldung_form');

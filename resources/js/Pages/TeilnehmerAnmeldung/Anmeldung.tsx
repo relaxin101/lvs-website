@@ -10,7 +10,7 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 interface TeilnehmerAnmeldung {
     mkvNr: number | null;
     verbindung: string; //todo: enum
-    couleurName: string;
+    couleurname: string;
     vorname: string;
     nachname: string;
     birthdate: Date;
@@ -32,7 +32,7 @@ export default function Anmeldung() {
         mkvNr: 0,
         vorname: '',
         nachname: '',
-        couleurName: '',
+        couleurname: '',
         verbindung: 'RBE',
         email: '',
         birthdate: new Date(),

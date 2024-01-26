@@ -13,22 +13,28 @@ Installation
 Nach heutigem Stand (09.07.2023), wird Laravel 10.14.1 mit php 8.2.8 benutzt.
 
 ### Development
+#### Aufsetzen
 1. PhP 8.2.8 installieren
 2. Composer (php-package-manager) installieren
-3. Im Root-Folder `composer install` ausführen
-4. `.env` Datei erstellen (siehe `.env.example`)
-5. das docker compose file ausführen `docker compose up` bzw `docker compoose start`
-6. In zwei weiteren Terminal sessions `php artisan serve` und  `npm run dev` ausführen
-7. [http://localhost:8000](http://localhost:8000) im Browser öffnen
+3. Im Root-Folder `composer install --ignore-platform-reqs` ausführen
+4. `.env` Datei erstellen (`.env.example` duplizieren)
+5. Erster Start `make up` ausführen & warten bis alle Container gestartet sind, anschließend `make fe` in anderem Terminal ausführen
+6. `make migrate` ausführen
+7. [http://localhost:8000/register](http://localhost:8000/register) - Anmeldung
+8. [http://localhost:8000/admiin](http://localhost:8000/admin) - Adminpanel
+9. 
+#### Starten & Stoppen
+- `make start` - startet alle Container
+- `make stop` - stoppt alle Container
+
+
 
 ### Deployment
 *Currently under construction*
 
-
-
-
 Weitere wichtige Befehle wären:
-- `php artisan migrate:fresh`, um die Datenbank zu instanzieren (falls sie noch nicht existiert)
+- `make attach` - an container anhängen, um alle artisan Befehle ausführen zu können
+- `make migrate` - Datenbank-Migrationen ausführen
 - `php artisan make:[model|migration|controller|component|policy|...]`zum Erstellen neuer Klassen
 
 Überblick für Nicht-Laravel-Nutzer

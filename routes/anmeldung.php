@@ -23,4 +23,4 @@ Route::get('/anmeldung', function () {
 })->name('anmeldung_website');
 
 
-Route::get('/anmeldung', [AnmeldungController::class, 'store'])->name('anmeldung_form');
+Route::post('/anmeldung', [AnmeldungController::class, 'store'])->name('anmeldung_form');

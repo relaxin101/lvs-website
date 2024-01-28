@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nachname');
             $table->string('titel');
             $table->string('couleurname');
-            $table->string('straße');
+            $table->string('strasse');
             $table->integer('plz');
             $table->string('ort');
             $table->string('email');

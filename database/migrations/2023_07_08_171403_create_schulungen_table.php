@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('schulungsleiter')->nullable();
             $table->string('landessenior')->nullable();
             $table->string('landesphilistersenior')->nullable();
-            $table->string('landesvorsitzende');
+            $table->string('landesvorsitzender');
             $table->timestamps();
         });
     }

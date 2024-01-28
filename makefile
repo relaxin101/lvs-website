@@ -1,4 +1,5 @@
 sail=./vendor/bin/sail
+laravel=laravel.test
 
 up:
 	$(sail) up
@@ -7,18 +8,18 @@ down:
 
 start:
 	$(sail) start
-	$(sail) npm run dev &
+	$(sail) npm run dev
 
 fe:
 	$(sail) npm run dev
 
 attach:
-	$(sail) exec lvs bash
+	$(sail) exec $(laravel) bash
 
 stop:
 	$(sail) stop
 
 migrate:
 	$(sail) artisan migrate:fresh
-	$(sail) aritsan db:seed
+	$(sail) artisan db:seed
 

@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Couleurstudent extends Model
 {
@@ -13,7 +12,8 @@ class Couleurstudent extends Model
 
     protected $table = 'couleurstudenten';
 
-    public function verbindung() : BelongsToMany {
+    public function verbindungen(): BelongsToMany
+    {
         return $this->belongsToMany(Verbindung::class);
     }
 }

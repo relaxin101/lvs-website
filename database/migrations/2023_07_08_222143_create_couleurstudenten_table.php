@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('couleurstudenten', function (Blueprint $table) {
             $table->id();
-            $table->string('vorname');
-            $table->string('nachname');
-            $table->string('titel');
-            $table->string('couleurname');
+            $table->char('vorname', 255);
+            $table->char('nachname', 255);
+            $table->char('titel', 255);
+            $table->char('couleurname', 255);
             $table->string('strasse');
             $table->integer('plz');
             $table->string('ort');

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('teilnehmer_schulungen', function (Blueprint $table) {
-            //$table->id();
+        Schema::create('anmeldungen', function (Blueprint $table) {
+            $table->id()->primary();
             $table->foreignId('teilnehmer_id')->references('id')->on('teilnehmer');
             $table->foreignId('schulung_id')->references('id')->on('schulungen');
 
@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->char('email_status', 20)->default('offen');
             $table->boolean('todo')->default(false);
-            $table->json('protokoll')->nullable();
+            $table->string('protokoll')->nullable();
             $table->timestamps();
 
             $table->unique(['teilnehmer_id', 'schulung_id']);

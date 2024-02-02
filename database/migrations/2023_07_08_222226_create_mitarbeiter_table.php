@@ -29,7 +29,9 @@ return new class extends Migration {
                 ]
             );
             $table->string('andere_funktionen');
-            $table->integer('rezeption_RBE');
+            $table->integer('reception_RBE');
+            $table->integer('branderung_RBE');
+            $table->integer('burschung_RBE');
             $table->timestamps();
         });
     }

@@ -15,7 +15,13 @@ class DatabaseSeeder extends Seeder
         $this->call(
             [
                 VerbindungSeeder::class,
-                UserSeeder::class
+                UserSeeder::class,
+                CouleurstudentSeeder::class,
+                SchulungSeeder::class,
+                TeilnehmerSeeder::class,
+                MitarbeiterSeeder::class,
+                GruppenSeeder::class,
+                ZimmerSeeder::class,
             ]
         );
     }

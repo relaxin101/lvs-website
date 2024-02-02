@@ -18,80 +18,111 @@ class TeilnehmerResource extends Resource
 
     public static function form(Form $form): Form
     {
+
         return $form
             ->schema([
-                Forms\Components\Repeater::make('couleurstudent')
-                    ->relationship('couleurstudent')
+                Forms\Components\TextInput::make('couleurstudent.titel')
+                    ->autofocus()
+                    ->required()
+                    ->maxLength(255)
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+
+                Forms\Components\TextInput::make('couleurstudent.vorname')
+                    ->autofocus()
+                    ->required()
+                    ->maxLength(255)
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+
+                Forms\Components\TextInput::make('couleurstudent.nachname')
+                    ->required()
+                    ->maxLength(255)
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+
+                Forms\Components\TextInput::make('couleurstudent.couleurname')
+                    ->required()
+                    ->maxLength(255)
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+                Forms\Components\Select::make('couleurstudent.verbindungen')
+                    ->relationship('couleurstudent.verbindungen', 'kuerzel')
+                    ->label('Verbindungen')
+                    ->preload()
+                    ->multiple()
+                    ->required(),
+
+                Forms\Components\Repeater::make('anmeldungen')
+                    ->relationship('anmeldungen')
                     ->required()
                     ->minItems(1)
                     ->maxItems(1)
                     ->deletable(false)
                     ->schema([
-                        Forms\Components\TextInput::make('vorname')
-                            ->autofocus()
-                            ->required()
-                            ->max(255),
-                        Forms\Components\TextInput::make('nachname')
-                            ->required()
-                            ->max(255),
-                        Forms\Components\TextInput::make('couleurname')
-                            ->required()
-                            ->max(255),
-                        Forms\Components\Select::make('verbindungen.kuerzel')
-                            ->relationship('verbindungen', 'kuerzel')
-                            ->preload()
-                            ->multiple()
+                        Forms\Components\Select::make('schulung_id')#
+                        ->relationship('schulung', 'jahr')
                             ->required(),
-                        Forms\Components\TextInput::make('email'),
-                        Forms\Components\TextInput::make('telefon'),
-                        Forms\Components\TextInput::make('strasse'),
-                        Forms\Components\TextInput::make('plz')->numeric(),
-                        Forms\Components\TextInput::make('ort'),
 
-
-                    ]),
-
-                Forms\Components\Select::make('schulungen')->relationship('schulungen', 'jahr')
-                    ->required()
-                    ->numeric(),
-
-                Forms\Components\Repeater::make('schulungen')
-                    ->required()
-                    ->minItems(1)
-                    ->maxItems(1)
-                    ->deletable(false)
-                    ->schema([
-
-                        Forms\Components\Select::make('schulungen.ogv_status')
+                        Forms\Components\Select::make('ogv_status')
                             ->options([ //todo define enum
                                 '0' => '0',
                                 '1' => '1',
                                 '2' => '2',
                             ]),
-                        Forms\Components\Select::make('schulungen.pdf_status')
+                        Forms\Components\Select::make('pdf_status')
                             ->options([ //todo define enum
                                 '0' => '0',
                                 '1' => '1',
                                 '2' => '2',
                             ]),
-                        Forms\Components\Select::make('schulungen.email_status')
+                        Forms\Components\Select::make('email_status')
                             ->options([ //todo define enum
                                 '0' => '0',
                                 '1' => '1',
                                 '2' => '2',
                             ]),
-                        Forms\Components\TextInput::make('schulungen.protokoll')
-                            ->disabled()
+                        Forms\Components\TextInput::make('protokoll')
                     ]),
                 Forms\Components\DatePicker::make('reception'),
                 Forms\Components\DatePicker::make('burschung'),
                 Forms\Components\Select::make('essen')
                     ->default('1')
-                ->options([ //todo define enum
-                    '1' => '1'
-                ]),
-                Forms\Components\TextInput::make('notfallkontakt'),
+                    ->options([ //todo define enum
+                        '1' => '1'
+                    ]),
+
+                Forms\Components\TextInput::make('couleurstudent.email')
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+
+                Forms\Components\TextInput::make('couleurstudent.telefon')
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+
+                Forms\Components\TextInput::make('couleurstudent.strasse')
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+
+                Forms\Components\TextInput::make('couleurstudent.plz')
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->numeric()->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+
+                Forms\Components\TextInput::make('couleurstudent.ort')
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+
+                Forms\Components\TextInput::make('notfallkontakt')
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+
                 Forms\Components\TextInput::make('sonstiges')
+                    ->dehydrated(fn(Forms\Get $get) => $get('alles_bearbeiten'))
+                    ->disabled(fn(Forms\Get $get) => !$get('alles_bearbeiten')),
+
+                Forms\Components\Checkbox::make('alles_bearbeiten')->dehydrated(False)
+                    ->reactive()
+
             ]);
     }
 

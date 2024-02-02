@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Teilnehmer extends Model
 {
@@ -18,8 +19,12 @@ class Teilnehmer extends Model
         return $this->belongsTo(Couleurstudent::class);
     }
 
-    public function schulung(): BelongsToMany
+    public function anmeldungen(): HasMany
     {
-        return $this->belongsToMany(Schulung::class, 'teilnehmer_schulungen');
+        return $this->hasMany(Anmeldung::class);
+    }
+    public function schulungen(): HasManyThrough
+    {
+        return $this->hasManyThrough(Schulung::class, Anmeldung::class);
     }
 }

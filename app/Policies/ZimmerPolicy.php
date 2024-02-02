@@ -13,7 +13,7 @@ class ZimmerPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class ZimmerPolicy
      */
     public function view(User $user, Zimmer $zimmer): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class ZimmerPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class ZimmerPolicy
      */
     public function update(User $user, Zimmer $zimmer): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class ZimmerPolicy
      */
     public function delete(User $user, Zimmer $zimmer): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class ZimmerPolicy
      */
     public function restore(User $user, Zimmer $zimmer): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class ZimmerPolicy
      */
     public function forceDelete(User $user, Zimmer $zimmer): bool
     {
-        //
+        return true;
     }
 }

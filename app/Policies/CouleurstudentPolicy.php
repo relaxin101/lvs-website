@@ -13,7 +13,7 @@ class CouleurstudentPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class CouleurstudentPolicy
      */
     public function view(User $user, Couleurstudent $couleurstudent): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class CouleurstudentPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class CouleurstudentPolicy
      */
     public function update(User $user, Couleurstudent $couleurstudent): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class CouleurstudentPolicy
      */
     public function delete(User $user, Couleurstudent $couleurstudent): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class CouleurstudentPolicy
      */
     public function restore(User $user, Couleurstudent $couleurstudent): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class CouleurstudentPolicy
      */
     public function forceDelete(User $user, Couleurstudent $couleurstudent): bool
     {
-        //
+        return true;
     }
 }

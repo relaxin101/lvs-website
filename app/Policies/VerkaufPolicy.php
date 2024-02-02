@@ -13,7 +13,7 @@ class VerkaufPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class VerkaufPolicy
      */
     public function view(User $user, Verkauf $verkauf): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class VerkaufPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class VerkaufPolicy
      */
     public function update(User $user, Verkauf $verkauf): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class VerkaufPolicy
      */
     public function delete(User $user, Verkauf $verkauf): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class VerkaufPolicy
      */
     public function restore(User $user, Verkauf $verkauf): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class VerkaufPolicy
      */
     public function forceDelete(User $user, Verkauf $verkauf): bool
     {
-        //
+        return true;
     }
 }

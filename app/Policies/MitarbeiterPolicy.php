@@ -13,7 +13,7 @@ class MitarbeiterPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class MitarbeiterPolicy
      */
     public function view(User $user, Mitarbeiter $mitarbeiter): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class MitarbeiterPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class MitarbeiterPolicy
      */
     public function update(User $user, Mitarbeiter $mitarbeiter): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class MitarbeiterPolicy
      */
     public function delete(User $user, Mitarbeiter $mitarbeiter): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class MitarbeiterPolicy
      */
     public function restore(User $user, Mitarbeiter $mitarbeiter): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class MitarbeiterPolicy
      */
     public function forceDelete(User $user, Mitarbeiter $mitarbeiter): bool
     {
-        //
+        return true;
     }
 }

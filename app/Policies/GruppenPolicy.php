@@ -13,7 +13,7 @@ class GruppenPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class GruppenPolicy
      */
     public function view(User $user, Gruppen $gruppen): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class GruppenPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class GruppenPolicy
      */
     public function update(User $user, Gruppen $gruppen): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class GruppenPolicy
      */
     public function delete(User $user, Gruppen $gruppen): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class GruppenPolicy
      */
     public function restore(User $user, Gruppen $gruppen): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -61,6 +61,6 @@ class GruppenPolicy
      */
     public function forceDelete(User $user, Gruppen $gruppen): bool
     {
-        //
+        return true;
     }
 }

@@ -6,18 +6,16 @@ use App\Filament\Resources\SchulungResource\Pages;
 use App\Filament\Resources\SchulungResource\RelationManagers;
 use App\Models\Schulung;
 use Carbon\Carbon;
-use Carbon\Traits\Date;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SchulungResource extends Resource
 {
     protected static ?string $model = Schulung::class;
+    protected static ?string $navigationLabel = 'Schulungen';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -29,15 +27,12 @@ class SchulungResource extends Resource
                     ->required()
                     ->default(fn() => Carbon::now()->year)
                     ->numeric(),
-                Forms\Components\Select::make('schulungsleiter')
-                    ->relationship('schulungsleiter', 'couleurname'),
-                Forms\Components\TextInput::make('landessenior')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('landesphilistersenior')
-                    ->maxLength(255),
                 Forms\Components\TextInput::make('landesvorsitzender')
+                    ->required(),
+                Forms\Components\TextInput::make('landesphilistersenior')
+                    ->required(),
+                Forms\Components\TextInput::make('landessenior')
                     ->required()
-                    ->maxLength(255),
             ]);
     }
 
@@ -46,15 +41,24 @@ class SchulungResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('jahr')
-                    ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('schulungsleiter.couleurname')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('praefekt.couleurname')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('verwaltungsleiter.couleurname')
+                    ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('landessenior')
+                    ->searchable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('landesphilistersenior')
+                    ->searchable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('landesvorsitzender')
+                    ->searchable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -81,7 +85,7 @@ class SchulungResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\SchulungsleiterRelationManager::class
         ];
     }
 

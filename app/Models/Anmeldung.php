@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Anmeldung extends Model
 {
-    protected $table = 'teilnehmer_schulungen';
+    protected $table = 'anmeldungen';
     protected $guarded = [];
 
     public function teilnehmer(): BelongsTo

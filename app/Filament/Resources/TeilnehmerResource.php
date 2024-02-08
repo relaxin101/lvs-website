@@ -82,14 +82,17 @@ class TeilnehmerResource extends Resource
                                 '1' => '1',
                                 '2' => '2',
                             ]),
-                        Forms\Components\TextInput::make('protokoll')
+                        Forms\Components\Textarea::make('protokoll')
                     ]),
                 Forms\Components\DatePicker::make('reception'),
                 Forms\Components\DatePicker::make('burschung'),
                 Forms\Components\Select::make('essen')
                     ->default('1')
-                    ->options([ //todo define enum
-                        '1' => '1'
+                    ->options([
+                        'Normal' => 'normal',
+                        'Vegetarisch' => 'vegetarisch',
+                        'Vegan' => 'vegan',
+                        'Sonstiges/Allergien' => 'sonstiges'
                     ]),
 
                 Forms\Components\TextInput::make('couleurstudent.email')

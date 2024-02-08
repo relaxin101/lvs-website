@@ -10,8 +10,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CouleurstudentResource extends Resource
 {
@@ -30,8 +28,6 @@ class CouleurstudentResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('titel')
-                    ->tel()
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('couleurname')
                     ->required()

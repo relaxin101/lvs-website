@@ -67,4 +67,11 @@ class Schulung extends Model
             ->belongsToMany(Mitarbeiter::class, 'mitarbeiter_schulungen')
             ->wherePivot('funktion', SchulungsFunktionen::Verwaltung->value);
     }
+
+    public function mitarbeiter(): BelongsToMany
+    {
+        return $this
+            ->belongsToMany(Mitarbeiter::class, 'mitarbeiter_schulungen')
+            ->withPivot('funktion');
+    }
 }

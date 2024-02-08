@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\enums\SchulungsFunktionen;
 use App\Models\Schulung;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class SchulungSeeder extends Seeder
@@ -21,6 +21,6 @@ class SchulungSeeder extends Seeder
             'landesvorsitzender' => 'Markus Weiner v. Weini'
 
         ]);
-        $schulung->schulungsleiter()->attach(1);
+        $schulung->schulungsleiter()->attach(1, ['funktion' => SchulungsFunktionen::Schulungsleiter]);
     }
 }

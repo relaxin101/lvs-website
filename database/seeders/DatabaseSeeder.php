@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
                 VerbindungSeeder::class,
                 UserSeeder::class,
                 CouleurstudentSeeder::class,
+                MitarbeiterSeeder::class,
                 SchulungSeeder::class,
                 TeilnehmerSeeder::class,
-                MitarbeiterSeeder::class,
                 GruppenSeeder::class,
                 ZimmerSeeder::class,
             ]

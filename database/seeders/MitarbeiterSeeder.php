@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Mitarbeiter;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MitarbeiterSeeder extends Seeder
@@ -14,6 +13,7 @@ class MitarbeiterSeeder extends Seeder
     public function run(): void
     {
         Mitarbeiter::factory()->create([
+            'id' => 1,
         ]);
     }
 }

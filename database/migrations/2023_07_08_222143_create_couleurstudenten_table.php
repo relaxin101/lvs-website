@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->char('vorname', 255);
             $table->char('nachname', 255);
-            $table->char('titel', 255);
+            $table->char('titel', 255)->nullable();
             $table->char('couleurname', 255);
             $table->string('strasse');
             $table->integer('plz');

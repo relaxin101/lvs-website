@@ -11,6 +11,7 @@ class Couleurstudent extends Model
     use HasFactory;
 
     protected $table = 'couleurstudenten';
+    protected $guarded = [];
 
     public function verbindungen(): BelongsToMany
     {

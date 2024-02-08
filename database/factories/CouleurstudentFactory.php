@@ -17,7 +17,14 @@ class CouleurstudentFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'vorname' => $this->faker->firstName,
+            'nachname' => $this->faker->lastName,
+            'couleurname' => $this->faker->word,
+            'strasse' => $this->faker->streetAddress,
+            'plz' => $this->faker->numberBetween(1000, 9000),
+            'ort' => $this->faker->city,
+            'email' => $this->faker->email,
+            'telefon' => $this->faker->phoneNumber,
         ];
     }
 }

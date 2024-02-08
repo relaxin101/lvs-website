@@ -17,7 +17,7 @@ class SchulungFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'jahr' => $this->faker->numberBetween(2000, 2024),
         ];
     }
 }

@@ -13,14 +13,14 @@ class SchulungSeeder extends Seeder
      */
     public function run(): void
     {
-        Schulung::factory()->create([
+        $schulung = Schulung::factory()->create([
             'id' => 1,
             'jahr' => 2024,
-            'schulungsleiter' => 1,
             'landessenior' => 'Martin Lorenzer v. Tempus',
             'landesphilistersenior' => 'Tobias Ziegler v. Amboss',
             'landesvorsitzender' => 'Markus Weiner v. Weini'
 
         ]);
+        $schulung->schulungsleiter()->attach(1);
     }
 }

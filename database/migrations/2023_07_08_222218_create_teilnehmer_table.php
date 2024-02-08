@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->date('reception');
             $table->date('burschung');
-            $table->string('essen')->nullable();
+            $table->string('essen')->default('normal');
             $table->string('notfallkontakt');
             $table->string('sonstiges');
 

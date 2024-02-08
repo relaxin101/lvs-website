@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Anmeldung extends Model
 {
     protected $table = 'teilnehmer_schulungen';
+    protected $guarded = [];
 
     public function teilnehmer(): BelongsTo
     {

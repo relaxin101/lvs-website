@@ -13,22 +13,9 @@ return new class extends Migration {
     {
         Schema::create('mitarbeiter', function (Blueprint $table) {
             $table->id();
-            $table->enum('status_RBE',
-                [
-                    Mitarbeiter::RBE_AKTIVER,
-                    Mitarbeiter::RBE_ASSI,
-                    Mitarbeiter::RBE_ALTSCHEISSER,
-                    Mitarbeiter::RBE_EHRENMITGLIED
-                ]
-            );
-            $table->enum('funktion_RBE',
-                [
-                    Mitarbeiter::RBE_PRAETOR,
-                    Mitarbeiter::RBE_PRAETOR,
-                    Mitarbeiter::RBE_SEMLEI
-                ]
-            );
-            $table->string('andere_funktionen');
+            $table->char('status_RBE', 20);
+            $table->char('funktion_RBE', 20);
+            $table->string('andere_funktionen')->nullable();
             $table->integer('reception_RBE');
             $table->integer('branderung_RBE');
             $table->integer('burschung_RBE');

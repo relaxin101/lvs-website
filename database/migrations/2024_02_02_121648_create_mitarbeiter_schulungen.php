@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('schulungen', function (Blueprint $table) {
+        Schema::create('mitarbeiter_schulungen', function (Blueprint $table) {
             $table->id();
-            $table->integer('jahr');
-            $table->string('landessenior')->nullable();
-            $table->string('landesphilistersenior')->nullable();
-            $table->string('landesvorsitzender')->nullable();
-            $table->timestamps();
+            $table->foreignId('mitarbeiter_id')->references('id')->on('mitarbeiter');
+            $table->foreignId('schulung_id')->references('id')->on('schulungen');
+            $table->char('funktion', 50);
         });
     }
 
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('schulungen');
+        Schema::dropIfExists('mitarbeiter_schulungen');
     }
 };

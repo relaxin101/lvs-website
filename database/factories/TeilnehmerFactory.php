@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Couleurstudent;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,13 @@ class TeilnehmerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'reception' => $this->faker->date,
+            'burschung' => $this->faker->date,
+            'essen' => 'normal',
+            'couleurstudent_id' => Couleurstudent::query()->inRandomOrder()->first()->id,
+            'sonstiges' => $this->faker->sentence,
+            'notfallkontakt' => $this->faker->name
+
         ];
     }
 }

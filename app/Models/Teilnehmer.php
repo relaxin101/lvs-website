@@ -13,6 +13,7 @@ class Teilnehmer extends Model
 {
     use HasFactory;
     protected $table = 'teilnehmer';
+    protected $guarded = [];
 
     public function couleurstudent(): BelongsTo
     {
